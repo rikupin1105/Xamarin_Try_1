@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Xamarin_Try_1.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:Xamarin_Try_1"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Entry
+            Keyboard="Numeric"
+            Placeholder="半径を入力してください"
+            Text="{Binding Input}" />
+
+        <Grid>
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Command="{Binding Calc}"
+                CornerRadius="5"
+                Text="計算" />
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Command="{Binding Reset}"
+                CornerRadius="5"
+                Text="リセット" />
+
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                FontSize="20"
+                Text="円周" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                FontSize="20"
+                HorizontalTextAlignment="End"
+                Text="{Binding Circumference}" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                FontSize="20"
+                Text="面積" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                FontSize="20"
+                HorizontalTextAlignment="End"
+                Text="{Binding Area}" />
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
