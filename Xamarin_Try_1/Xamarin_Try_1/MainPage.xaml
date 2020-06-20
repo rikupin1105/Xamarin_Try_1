@@ -19,23 +19,6 @@
             Text="{Binding Input}" />
 
         <Grid>
-            <Button
-                Grid.Row="0"
-                Grid.Column="0"
-                Command="{Binding Calc}"
-                CornerRadius="5"
-                Text="計算" />
-
-            <Button
-                Grid.Row="0"
-                Grid.Column="1"
-                Command="{Binding Reset}"
-                CornerRadius="5"
-                Text="リセット" />
-
-        </Grid>
-
-        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
