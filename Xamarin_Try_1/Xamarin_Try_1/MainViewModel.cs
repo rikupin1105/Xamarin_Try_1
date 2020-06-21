@@ -7,19 +7,48 @@ namespace Xamarin_Try_1
     public class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public double Circumference { get; set; }
-        public double Area { get; set; }
-        public double Input 
-        {
+
+        private double circumference;
+        public double Circumference 
+        { 
+            get { return circumference; }
             set
             {
-                    var r = value;
-                    Circumference = 2 * 3.14 * r;
-                    Area = 3.14 * r * r;
-
+                if (circumference != value)
+                {
+                    circumference = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Circumference)));
+                }
+            }
+        }
+
+        private double area;
+        public double Area 
+        {
+            get { return area; }
+            set
+            {
+                if (area != value)
+                {
+                    area = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Area)));
-                
+                }
+            }
+        }
+
+        private double input;
+        public double Input 
+        {
+            get { return input; }
+            set
+            {
+                if (input != value)
+                {
+                    input = value;
+                    Circumference = 2 * 3.14 * input;
+                    Area = 3.14 * input * input;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Input)));
+                }
             }
         }
     }
