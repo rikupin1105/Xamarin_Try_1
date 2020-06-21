@@ -9,9 +9,9 @@ namespace Xamarin_Try_1
         public event PropertyChangedEventHandler PropertyChanged;
 
         private double circumference;
-        public double Circumference 
-        { 
-            get { return circumference; }
+        public double Circumference
+        {
+            get => circumference;
             set
             {
                 if (circumference != value)
@@ -23,9 +23,9 @@ namespace Xamarin_Try_1
         }
 
         private double area;
-        public double Area 
+        public double Area
         {
-            get { return area; }
+            get => area;
             set
             {
                 if (area != value)
@@ -36,18 +36,26 @@ namespace Xamarin_Try_1
             }
         }
 
-        private double input;
-        public double Input 
+        private string input;
+        public string Input
         {
-            get { return input; }
+            get => input;
             set
             {
                 if (input != value)
                 {
-                    input = value;
-                    Circumference = 2 * 3.14 * input;
-                    Area = 3.14 * input * input;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Input)));
+                    if (value == "")
+                    {
+                        Area = 0;
+                        Circumference = 0;
+                    }
+                    else
+                    {
+                        input = value;
+                        var radius = double.Parse(input);
+                        Circumference = 2 * 3.14 * radius;
+                        Area = 3.14 * radius * radius;
+                    }
                 }
             }
         }
